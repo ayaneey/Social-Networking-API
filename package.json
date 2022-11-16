@@ -1,0 +1,27 @@
+{
+  "name": "social-networking-api",
+  "version": "1.0.0",
+  "description": "A social networking app built using Mongoose and Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayaneey/Social-Networking-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayaneey/Social-Networking-API/issues"
+  },
+  "homepage": "https://github.com/ayaneey/Social-Networking-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
