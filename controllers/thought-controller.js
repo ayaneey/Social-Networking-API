@@ -113,4 +113,23 @@ addReaction({ params, body }, res);
 
 // delete a reaction
 
+deleteReaction({ params }, res);
+{
+	Thought.findOneAndUpdate(
+		{ _id: params.thoughtId },
+		{ $pull: { reactions: { reactionId: params.reactionId } } },
+		{ new: true }
+	)
+		.then((dbThoughtData) => {
+			if (!dbThoughtData) {
+				res
+					.status(404)
+					.json({ message: "The thought you are looking for does not exist!" });
+				return;
+			}
+			res.json(dbThoughtData);
+		})
+		.catch((err) => res.json(err));
+}
+
 module.exports = thoughtController;
