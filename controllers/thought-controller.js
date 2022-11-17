@@ -79,14 +79,38 @@ removeThought({ params }, res);
 				{ new: true }
 			);
 		})
-		.then((dbUserData) => {
-			if (!dbUserData) {
+		.then((dbThoughtData) => {
+			if (!dbThoughtData) {
 				res
 					.status(404)
 					.json({ message: "Sorry...no user found with this id!" });
 				return;
 			}
-			res.json(dbUserData);
+			res.json(dbThoughtData);
 		})
 		.catch((err) => res.json(err));
 }
+
+// create a reaction
+
+addReaction({ params, body }, res);
+{
+	Thought.findOneAndUpdate(
+		{ _id: params.thoughtId },
+		{ $addToSet: { reactions: body } },
+		{ new: true, runValidators: true }
+	)
+		.then((dbThoughtData) => {
+			if (!dbThoughtData) {
+				return res
+					.status(404)
+					.json({ message: "No thought found with this id!" });
+			}
+			res.json(dbThoughtData);
+		})
+		.catch((err) => res.json(err));
+}
+
+// delete a reaction
+
+module.exports = thoughtController;
