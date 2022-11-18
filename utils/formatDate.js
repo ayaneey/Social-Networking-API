@@ -1,7 +1,8 @@
 const addDateSuffix = (date) => {
 	let dateStr = date.toString();
 
-	const lastChar = dateStr.chaAt(dateStr.length - 1);
+	// get last char of date string
+	const lastChar = dateStr.charAt(dateStr.length - 1);
 
 	if (lastChar === "1" && dateStr !== "11") {
 		dateStr = `${dateStr}st`;
@@ -15,7 +16,6 @@ const addDateSuffix = (date) => {
 
 	return dateStr;
 };
-
 // function to format timestamp
 module.exports = (
 	timestamp,
@@ -38,5 +38,60 @@ module.exports = (
 			10: "Nov",
 			11: "Dec",
 		};
+	} else {
+		months = {
+			0: "January",
+			1: "February",
+			2: "March",
+			3: "April",
+			4: "May",
+			5: "June",
+			6: "July",
+			7: "August",
+			8: "September",
+			9: "October",
+			10: "November",
+			11: "December",
+		};
 	}
+
+	const dateObj = new Date(timestamp);
+	const formattedMonth = months[dateObj.getMonth()];
+
+	let dayOfMonth;
+
+	if (dateSuffix) {
+		dayOfMonth = addDateSuffix(dateObj.getDate());
+	} else {
+		dayOfMonth = dateObj.getDate();
+	}
+
+	const year = dateObj.getFullYear();
+
+	let hour;
+	// checking for 24 hour time
+	if (dateObj.getHours > 12) {
+		hour = Math.floor(dateObj.getHours() / 2);
+	} else {
+		hour = dateObj.getHours();
+	}
+	// note: if the hour is 0 (12:00am) then switch it to 12
+	if (hour === 0) {
+		hour = 12;
+	}
+
+	const minutes = dateObj.getMinutes();
+
+	// set time to 'am' or 'pm'
+	let periodOfDay;
+
+	if (dateObj.getHours() >= 12) {
+		periodOfDay = "pm";
+	} else {
+		periodOfDay = "am";
+	}
+
+	const formattedTimeStamp = `${formattedMonth} ${dayOfMonth}, ${year} at ${hour}:${minutes} ${periodOfDay}`;
+
+	return formattedTimeStamp;
 };
