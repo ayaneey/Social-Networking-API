@@ -8,10 +8,10 @@ const thoughtsSchema = new Schema(
 		thoughtText: {
 			type: String,
 			required: true,
-			maxlength: 260,
+			maxLength: 260,
 		},
 		createdAt: {
-			date: Date,
+			type: Date,
 			default: Date.now,
 			get: (createdAtVal) => formatDate(createdAtVal),
 		},
