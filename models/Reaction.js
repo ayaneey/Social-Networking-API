@@ -9,12 +9,12 @@ const reactionSchema = new Schema(
 		},
 		reactionBody: {
 			type: String,
-			required: true,
+			// required: true,
 			maxLength: 260,
 		},
 		username: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		createdAt: {
 			type: Date,

@@ -7,7 +7,7 @@ const thoughtsSchema = new Schema(
 	{
 		thoughtText: {
 			type: String,
-			required: true,
+			// required: true,
 			maxLength: 260,
 		},
 		createdAt: {
@@ -17,7 +17,7 @@ const thoughtsSchema = new Schema(
 		},
 		username: {
 			username: String,
-			required: true,
+			// required: true,
 		},
 		reactions: [reactionSchema],
 	},
