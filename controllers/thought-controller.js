@@ -10,7 +10,7 @@ const thoughtController = {
 
 	// retrieving a thought by its id
 	getThoughtById({ params }, res) {
-		Thought.findOne({ _id: params.thoughtId })
+		Thought.findOne({ _id: params.id })
 			.then((dbThoughtData) => {
 				if (!dbThoughtData) {
 					res.status(404).json({ message: "No thought with this id exists!" });
