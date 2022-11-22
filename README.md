@@ -34,6 +34,8 @@ SO THAT my website can handle large amounts of unstructured data
 <br>
 <img width="1512" alt="Screenshot 2022-11-22 at 7 06 20 pm" src="https://user-images.githubusercontent.com/108099259/203400438-30a3719c-a7f0-44ef-a87e-21c7f4c95b73.png">
 
+<b>You can watch the tutorial [HERE](https://www.youtube.com/watch?v=DN8teXtlmrw)</b>
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
